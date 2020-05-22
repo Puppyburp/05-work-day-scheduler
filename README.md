@@ -10,6 +10,6 @@ GitHub link to page: (https://puppyburp.github.io/05-work-day-scheduler/)
 
 The following image demonstrates the application functionality:
 
-![work day scheduler](./assets/code-quiz-demo.png)
+![work day scheduler](./workday-scheduler-demo.png)
 
 
