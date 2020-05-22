@@ -1,7 +1,11 @@
 $(document).ready(function() {
 
 // time array
-var $timeblockHours = ["9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "8PM"];
+var $timeblockHours = ["09AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM"];
+
+// format time
+var $time = moment().format("hA");
+
 // connect jquery with html container
 var $container = $(".container");
 
@@ -9,13 +13,9 @@ var $container = $(".container");
 var $date = moment().format("LL");
 $('#currentDay').html($date);
 
-// format time
-var $time = moment().format("hA");
-// var $time = moment().hours();
-
-// add content to page
+// create function to add content to page and change color blocks
 $.each($timeblockHours, function(index, value){
-  
+
   var $timeblockRow = $("<div>").addClass("time-block");
   var $row = $("<div>").addClass("row");
   var $timeCol = $("<div>" + value +"</div>").addClass("col-sm-1 time-col");
@@ -24,12 +24,23 @@ $.each($timeblockHours, function(index, value){
   var $saveIcon = $("<i>").addClass("far fa-save fa-2x");
 
 
-  $timeblockRow.append($row);
-  $row.append($timeCol);
-  $row.append($textareaCol);
-  $row.append($saveCol);
-  $saveCol.append($saveIcon);
-  $container.append($timeblockRow);
+  // to change the background timeblock color based upon time
+      if (value == $time) {
+        $timeblockRow.addClass("present");
+      } 
+        else if (value > $time) {
+        $timeblockRow.addClass("future");
+      } 
+        else if (value < $time) {
+        $timeblockRow.addClass("past");
+      }
+
+      $timeblockRow.append($row);
+      $row.append($timeCol);
+      $row.append($textareaCol);
+      $row.append($saveCol);
+      $saveCol.append($saveIcon);
+      $container.append($timeblockRow);
 
 });
 
@@ -41,37 +52,35 @@ $.each($timeblockHours, function(index, value){
 
 // get input out of textarea and save
 
-// $(".saveBtn").click(function(e){
-//   e.preventDefault();
+$(".saveBtn").click(function(e){
+  e.preventDefault();
 
-//   var getText = $(".textarea").val();
-//   localStorage.setItem($(".textarea"), getText); 
-//   $(".textarea").val(localStorage.getItem(getText)); 
-//   console.log(getText)
+  var $getText = $(".textarea").val();
+  localStorage.setItem($(".textarea"), $getText); 
+  $(".textarea").val(localStorage.getItem($getText)); 
 
-// });
-
-
-// KEEP THIS:
-// localStorage.setItem("textarea", JSON.stringify(user));
-// var lastname = JSON.parse(localStorage.getItem("key"));
-
-
-
-
-
-
-
-// to change the background based upon time
-
-
-$.each($timeblockHours.lenth, function(index, $time){
-    if ($timeblockHours == $time) {
-    $(".time-block").attr("class", "present");
-
-  };
 
 });
+
+// var $textareaCol = $("<textarea>").addClass("col-sm-10 textarea description");
+
+// KEEP THIS:
+// localStorage.setItem("textarea", JSON.stringify($getText));
+// localData = JSON.parse(localStorage.getItem($getText));
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
 
 
 
