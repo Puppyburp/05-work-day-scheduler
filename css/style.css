@@ -37,13 +37,14 @@ textarea {
 .time-block{
   text-align: center;
   border-radius: 15px;
-  background-color: lightgray;
 }
 
 .time-col {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  color: #303030
 }
 
 .row {

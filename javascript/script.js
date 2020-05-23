@@ -24,7 +24,7 @@ $.each($timeblockHours, function(index, value){
   var $saveIcon = $("<i>").addClass("far fa-save fa-2x");
 
 
-  // to change the background timeblock color based upon time
+// to change the background timeblock color based upon time
       if (value == $time) {
         $timeblockRow.addClass("present");
       } 
@@ -44,46 +44,44 @@ $.each($timeblockHours, function(index, value){
 
 });
 
-// // Store
-// localStorage.setItem("lastname", "Smith");
-// // Retrieve
-// document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+saveText();
 
+// local storage
+function saveText() {
+  $("textarea")[0].value = localStorage.getItem("textarea1");
+  $("textarea")[1].value = localStorage.getItem("textarea2");
+  $("textarea")[2].value = localStorage.getItem("textarea3");
+  $("textarea")[3].value = localStorage.getItem("textarea4");
+  $("textarea")[4].value = localStorage.getItem("textarea5");
+  $("textarea")[5].value = localStorage.getItem("textarea6");
+  $("textarea")[6].value = localStorage.getItem("textarea7");
+  $("textarea")[7].value = localStorage.getItem("textarea8");
+  $("textarea")[8].value = localStorage.getItem("textarea9");
+}
 
-// get input out of textarea and save
-
-$(".saveBtn").click(function(e){
+// save button + storage
+$(".saveBtn").on("click", function(e) {
   e.preventDefault();
+  var textArea1 = $("textarea")[0].value;
+  var textArea2 = $("textarea")[1].value;
+  var textArea3 = $("textarea")[2].value;
+  var textArea4 = $("textarea")[3].value;
+  var textArea5 = $("textarea")[4].value;
+  var textArea6 = $("textarea")[5].value;
+  var textArea7 = $("textarea")[6].value;
+  var textArea8 = $("textarea")[7].value;
+  var textArea9 = $("textarea")[8].value;
 
-  var $getText = $(".textarea").val();
-  localStorage.setItem($(".textarea"), $getText); 
-  $(".textarea").val(localStorage.getItem($getText)); 
-
-
+  localStorage.setItem("textarea1", textArea1);
+  localStorage.setItem("textarea2", textArea2);
+  localStorage.setItem("textarea3", textArea3);
+  localStorage.setItem("textarea4", textArea4);
+  localStorage.setItem("textarea5", textArea5);
+  localStorage.setItem("textarea6", textArea6);
+  localStorage.setItem("textarea7", textArea7);
+  localStorage.setItem("textarea8", textArea8);
+  localStorage.setItem("textarea9", textArea9);
 });
-
-// var $textareaCol = $("<textarea>").addClass("col-sm-10 textarea description");
-
-// KEEP THIS:
-// localStorage.setItem("textarea", JSON.stringify($getText));
-// localData = JSON.parse(localStorage.getItem($getText));
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
 
 // end of jquery wrapper
 });
